@@ -1,68 +1,36 @@
-extends base
-
-block title
-  title= page.title + ' | ' + config.title
-
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
-
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
-
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
-
-    include _partial/tag.pug
-    include _partial/post_nav.pug
-
-    if page.comments
-      include _partial/comments.pug
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>雪之影（一） | 月庄文字</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 5.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">雪之影（一）</h1><a id="logo" href="/.">月庄文字</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a target="_blank" rel="noopener" href="https://www.weibo.com/fangbin1990/home?wvr=5"><i class="fa fa-weibo"> </i></a><a target="_blank" rel="noopener" href="https://www.instagram.com/yue.zhuang/?hl=en"><i class="fa fa-instagram"> </i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">雪之影（一）</h1><div class="post-meta">Jan 20, 2018<span> | </span><span class="category"><a href="/categories/%E9%95%BF%E7%AF%87%E5%B0%8F%E8%AF%B4/">长篇小说</a></span></div><a class="disqus-comment-count" href="/2018/01/20/fiction/2018-02-05-1/#vcomment"><span class="valine-comment-count" data-xid="/2018/01/20/fiction/2018-02-05-1/"></span><span> Comment</span></a><div class="post-content"><p>第一章</p>
+<p>1、</p>
+<p>我一直不曾感觉有一种力量，在外处能变成抓住我心的引力，只有地球从某个深处出发一直抓着我，我拼命得跳，也只能跳一米六零的高度。小鸡鸡向下垂挂，见到漂亮姑娘，才会拼命点头打招呼，使劲叫你好。而我认识的姑娘中，些许都想有个温暖的小屋，然后收拾得干干净净。我觉得，我跟她们不是一类。</p>
+<p>我从实验楼出来的时候，天朗气清。太阳挂了一天，虽然已隐藏在楼身后，但丝毫没有疲累的迹象，两楼间挤洒出来的斜光，没有花一点力气就把我和路灯杆子的影子拉得老长。从有暖气的屋子里出来后，昏昏欲睡的感觉，瞬间被清冷的空气冲逝。紧一紧衣服，继续行走在石板路上。</p>
+<p>我像个刚被放出的囚犯，结束了十五年的单调牢狱日子，我出门之后显得漫无目的，浑身不适，不知要去向哪里。我准备再回办公室，但实验楼过会儿就要关大门，不能进入。在这个城市，加班属于犯法行为，罪名是恶意制造社会不公平性，惩罚项目是在家静待十五天，除了拉屎、拉尿、射精、流泪，不可以有任何带社会价值类的产出。</p>
+<p>实验楼的保安会说两句中文，他在早上检查我包的时候跟我尝试说一两句中文、或者中午一起在楼下抽烟区抽烟的空闲向我讨教，一学期下来有了些长进，保安已经有很大的年纪，他说有硕士文凭，但觉得之前的工作没有任何意义，就找了个保安的工作。凭借着两句中文，保安试图搭聊这个楼里所有的中国女留学生。我于后明白，人类语言的产生的原因本质是为了生存和繁衍，并不是写诗写散文写小说，如果写诗写小说也算是为了繁衍，这当然要追加探讨。如果随便的两句中文遵守“蝴蝶效应”，我不知道是否有一堆爱情，正在暗处的角落发生和破碎。</p>
+<p>对于博士生来说，下班迷迷糊糊是常态，研究的东西乱七八糟，总让自己与社会有距离感，甚至产生某种脱节。这些乱七八糟的东西虽然锻炼思维，却让人显得愚钝和木讷。其实它们让我们变得更专注，更简单，更遵从逻辑，而梅子总觉得我太复杂，越来越无法对话和交流。</p>
+<p>因此我的世界是飘浮的，什么都有可能发生，什么都有可能不发生，比如夜里两点多钟，我会莫名其妙得失眠，令人无奈。我学医的朋友告诉我，男性射精之后会分泌某种胺，会诱发睡眠，是治疗失眠的良方。我失眠的时候，身边也没个女人，也从没想过试一试，即使有，考虑到一个人制造的儿孙注定皆无未来可言，反而会增加幽恐的心绪，交织反复。我可以确定的是，我不会变成一头猪，所以这只能是我的美好向往，我不明白那句骂人的话— —你真是一头猪（不加蠢字），如果是真的，该会是有多趣，至少猪不会随便失眠。从宇宙之外的眼光看，我跟一头猪其实也没什么本质区别，完全可以抽象成等同的玩意，在轮回中度过生和死，都是偶然产生的尘埃。我爸爬到我妈身上，造了我，一只公猪爬到一只母猪身上，造了一小猪。我爸和那只公猪，在爬的时候，其实也没想过究竟是为什么，是什么东西在驱使他们去爬。我和小猪都喜欢喝奶，随地撒尿，在阳光下奔跑和发育，他在阉割之前对母猪很感兴趣，我在生长完全之后对美女很感兴趣，他有他的艳遇，我有我的爱情。他的工作是简单得长肉，我的工作是复杂得凭兴趣搞点研究，挣点小钱。按理说，猪的工作比我更有务实作风，这是我应该学习的地方。</p>
+<p>办公楼附近不远就是地铁站，巴黎的地铁，脏得不能再脏，臭得不能再臭，乱得不能再乱，。在热气弥漫的夏天，进地下地铁站，仿佛进入末日的化肥厂，体力不好的会晕倒过去，体力好的会逐渐降低嗅觉能力，牵着狗一起，狗会四腿发软，在地铁口就倔强得不走，任凭你怎么拉。唯一可能喜欢这漫天重气的，是《香水》里的葛奴乙，他能从弥杂的味道中闻到女人各个部位的不同香。我坐上了地铁，是因为地铁和电车，比我更知道该去哪里。我不是去找梅子，况且我不知道此刻她在哪。</p>
+<p>2、</p>
+<p>地铁从桥上跨过塞纳河，向意大利广场驶去。下班的人太多，我被挤在了门边，手按着玻璃，保持平衡。任何包装式的房屋设计，飞机设计，地铁设计，总得要开个窗，因为人都喜欢向外看，如果死人也喜欢向外望，棺材也会挖个窗户，安块玻璃。隔着窗，外面的楼摇晃中移过我手指的间隙。河水晃摇着余晖，闪闪人眼。</p>
+<p>塞纳河河边的堤岸坐着一对对情侣，双脚盘坐或挂在河堤边缘，双眸印着水，跟地铁的轰隆声相比，外面的一切似乎很平静。河上经过有好几层的游船，只要不下大雨，游船上都装满了人。对于空中飞的鸽子而言，这艘船里的人群，如同我们在公路上看到的卡车里的猪。</p>
+<p>鸽子在船上方扇着翅膀，拉下一泡热乎屎，砸在甲板上一个秃顶男头上。热乎屎在秋天末尾的空中遇冷，不再热乎，变成冷乎屎。重力和摩擦力相等，在头部表面匀速摊流下来，逐渐凝固。 刚好收在我眼里。我在出办公室之前，跟办公室对面的量子计算实验室的研究员，聊了会儿天，聊完后，我迷迷糊糊，如同中了某种催眠，秃顶男被鸟屎砸中，让我心情愉悦。这并非幸灾乐祸，而是不确定的生活场景，让我吃惊，所处的生活里，其实没有想象中的那么单调。</p>
+<p>我拿出手机，既然漫无目的，心情也被一抛鸽子屎提了上来，意约王主任吃酒。主任问，何处？我回，意大利广场。主任问，几时？我回，傍晚六时。主任问，随谁？我回，单行，你呢？主任回，携妻。</p>
+<p>游船上的人喜欢朝河岸边坐着的人挥手打招呼，表示喜欢来巴黎观光，因为也看不着人，谁都不知道谁是谁，只是某种内心底层的需要，他们需要这样喊一下。谁知道藏在滚滚红尘深处的回应，也许就在路上。河堤上，一群小伙中，两个青年转过身子， 拉开拉链，褪下裤子，向船上的人露出自己的两瓣白花花屁股，一边拍打屁股，一边叫嚷，迎合船上的游客。立在地上的啤酒瓶子被青年笨拙的脚后跟触碰，翻倒后，滚落于河里，随浪浮动。这次藏在滚滚红尘深处的回应是屁股。这又刚好收在我眼里。</p>
+<p>我差点在地铁里笑出声，打破由无数个下班乘客的面容营造的冷淡气氛。旅游时最好带上望远镜，没准还能在冬天看到菊花。城市的高潮在各种叫嚷中波荡开。</p>
+<p>我只有在极度欢喜的时候，才能大口吃酒，不然饮酒如饮毒，酒难入口。恐惧的原因是酒会像火山喷射，让逻辑和意识都崩塌，接着语言，接着肉体，都在劫难逃。别人说酒后乱性，我酒后小鸡鸡一点不争气，能缩多小是多小，更别提对姑娘打招呼。酒桌上，朋友相劝，只能嘴唇触碰，不没舌头，如抿口红一般，小心翼翼。</p>
+<p>我约王主任喝酒的时候，我极度欢喜。</p>
+</div><div class="tags"><a href="/tags/%E9%9B%AA%E4%B9%8B%E5%BD%B1/">雪之影</a></div><div class="post-nav"><a class="pre" href="/2018/01/20/fiction/2018-02-05-2/">雪之影（二）</a><a class="next" href="/2018/01/20/fiction/2018-02-05-3/">雪之影（三）</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'UyUavq9vauEaLPHGLLb1XitC-gzGzoHsz',
+  appKey:'I2PSrQIfYiPtJrHNNtvNl2t0',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yuezhuang.me"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E5%AD%A6/">文学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%95%BF%E7%AF%87%E5%B0%8F%E8%AF%B4/">长篇小说</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8/" style="font-size: 15px;">功能安全</a> <a href="/tags/%E6%A0%87%E5%87%86%E8%AE%A4%E8%AF%81/" style="font-size: 15px;">标准认证</a> <a href="/tags/%E9%9B%AA%E4%B9%8B%E5%BD%B1/" style="font-size: 15px;">雪之影</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 15px;">随笔</a> <a href="/tags/%E5%B7%B4%E9%BB%8E/" style="font-size: 15px;">巴黎</a> <a href="/tags/%E9%87%8C%E6%96%AF%E6%9C%AC/" style="font-size: 15px;">里斯本</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 15px;">上海</a> <a href="/tags/%E6%97%B6%E9%97%B4/" style="font-size: 15px;">时间</a> <a href="/tags/%E4%B8%A4%E6%80%A7/" style="font-size: 15px;">两性</a> <a href="/tags/%E5%8D%97%E6%B5%94/" style="font-size: 15px;">南浔</a> <a href="/tags/%E6%84%8F%E5%A4%A7%E5%88%A9/" style="font-size: 15px;">意大利</a> <a href="/tags/%E6%AF%94%E5%88%A9%E6%97%B6/" style="font-size: 15px;">比利时</a> <a href="/tags/%E5%BE%B7%E5%9B%BD/" style="font-size: 15px;">德国</a> <a href="/tags/TODO/" style="font-size: 15px;">TODO</a> <a href="/tags/%E9%B2%81%E8%BF%85/" style="font-size: 15px;">鲁迅</a> <a href="/tags/%E9%99%88%E4%B8%B9%E9%9D%92/" style="font-size: 15px;">陈丹青</a> <a href="/tags/%E8%A5%BF%E7%8F%AD%E7%89%99/" style="font-size: 15px;">西班牙</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/01/13/article/2021-01-20/">去年往事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/13/article/2020-09-13/">欢喜故事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/13/article/2020-07-13/">盛夏故事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/02/article/2020-06-2/">阅读笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/22/article/2020-05-24/">关于形式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/article/2020-05-17/">艺术家与家务</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/article/2020-04-30/">人民不需要文艺</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/article/2020-04-22/">挂水记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/17/article/2020-04-17/">计划性与随意性</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/article/2020-03-03/">睡</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/cs/2020-09-03/">形式化方法在认证中的应用与思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/22/article/2020-01-22/">无限的雾层层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/28/article/2019-06-28/">每一阵风都是命运</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/article/2019-05-15%20-%202/">在夜空中钻进云里</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/article/2018-11-18/">出现又离开</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/poem/2019-05-15/">黄昏记忆</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/article/2018-09-17/">永恒开始褪色</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/article/2018-09-04/">痛苦的几个瞬间</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/article/2018-09-14/">说一说上海</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/03/article/%E9%BB%84%E6%98%8F%E4%B9%8B%E5%90%BB4/">黄昏之吻（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/31/article/2018-07-31/">里斯本的肖像</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/28/poem/2018-07-15/">二〇一八七月辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/15/article/%E6%B8%85%E5%8D%95%E9%87%8C%E7%9A%84%E7%94%9F%E6%B4%BB/">清单里的生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/13/todo/2018-07-13/">TODO</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/14/article/2018-06-11-2/">大雨</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.fanyeong.com/" title="EricFan" target="_blank">EricFan</a><ul></ul><a href="https://shuge.org/" title="书格" target="_blank">书格</a><ul></ul><a href="https://ahdw.giize.com/" title="随机森林" target="_blank">随机森林</a><ul></ul><a href="https://www.yocson.com/" title="配信中" target="_blank">配信中</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 19902021 <a href="/." rel="nofollow">月庄文字.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

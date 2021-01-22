@@ -1,68 +1,44 @@
-extends base
-
-block title
-  title= page.title + ' | ' + config.title
-
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
-
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
-
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
-
-    include _partial/tag.pug
-    include _partial/post_nav.pug
-
-    if page.comments
-      include _partial/comments.pug
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>未来女朋友 | 月庄文字</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 5.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">未来女朋友</h1><a id="logo" href="/.">月庄文字</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a target="_blank" rel="noopener" href="https://www.weibo.com/fangbin1990/home?wvr=5"><i class="fa fa-weibo"> </i></a><a target="_blank" rel="noopener" href="https://www.instagram.com/yue.zhuang/?hl=en"><i class="fa fa-instagram"> </i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">未来女朋友</h1><div class="post-meta">Aug 4, 2017<span> | </span><span class="category"><a href="/categories/%E6%96%87%E5%AD%A6/">文学</a></span></div><a class="disqus-comment-count" href="/2017/08/04/article/%E8%87%B4%E6%9C%AA%E6%9D%A5%E5%A5%B3%E6%9C%8B%E5%8F%8B%E4%B9%A6/#vcomment"><span class="valine-comment-count" data-xid="/2017/08/04/article/%E8%87%B4%E6%9C%AA%E6%9D%A5%E5%A5%B3%E6%9C%8B%E5%8F%8B%E4%B9%A6/"></span><span> Comment</span></a><div class="post-content"><p><img src="/images/dg2.jpg"></p>
+<p>展信欢喜。</p>
+<p>这是一封短篇书信，可能会花费你半柱香的阅读时间，带给你不确定的思绪浮想或者肉体上的躁动，这些都是有可能的，确保你妈不在你左边，你爸不在你右边。</p>
+<p>现世，一个成年雄性给成年雌性写信，应属骚包透顶之事，骚包是因为这么大年纪还写信，透顶是成年雌性不会因看一封信而湿润，感怀，颤抖。</p>
+<p>从初中开始，不深不浅，受一些妇女喜爱，断断续续收到一些情书。也许是因为成绩好，谈吐幽默，表达活泼，吹牛技艺高；或仅仅是挂着几分姿容，女生的骨髓本质，其实也好色。这些信有洋洋洒洒千字文，也有一片两片的短诗，都无署名，不知道到姓名，不知道年级，甚至不知道性别。个个都像张爱玲，看穿一切，觉得神秘是最好的诱惑。我对文字有洁癖和考究心绪，这些信没在我年轻的沙滩上踩下多少脚印。她们练习着玩弄男人和操手浪漫，享受你在暗她在明的快感。倘若找到写信的人，也不会比其他男孩子更早认识女性身体构造，指望初中生物能拿个满分。也许她们对自己的构造还尚未弄清楚，对我也不一定都是打开的。那些信静悄悄的在我如厕回来后，出现在我的书里，我环顾四周，发现不了哪个同学有稍许异常，捕获不了端倪，神神秘秘弥漫了整个发育年月。</p>
+<p>上个几十年，男女交往，简单，素朴，纯粹，质感，稠密，触摸身体之前先抚摸灵魂，大多时间都花在互相阅读上，情感和性情都像煮红枣茶一样煮进字里行间，时间如《从前慢》，空间如《情书》，摸下手得像游击队在人烟稀少的地方进行特务式行动。晚上街边行走，往杂草丛处扔一块石头或者电筒探照，能吓软不少鸳鸯。我老娘和我老爸在认识之后，入洞房之前，互相写信，一两抽屉满满信笺。老娘说，当年在信里的肉麻用词很上档次——海枯石烂，永不变心。我冷缩着身，说，太他妈恶心了。我老爸想了想，也说，太他妈恶心了。</p>
+<p>时下浮躁人口的流动性，注定在急涌的人群手中制造出来的爱情，摆脱不了上升的随意性和离散的自发性，但仍然依托于天暖燕南飞的必然，爹娘拼命造出你我的偶然。有钱一起挣，有春梦，大家一起做。现今生产出来的爱情，生产日期明确，而到期的日子就像老王（王尔德）所说，浪漫的本质是其不确定性（The very essence of romance is uncertainty）。男女相当一部分恋爱时间花在一起逛街、看电视、看电影、阅读身体上。学校周边的主题客栈、莫泰、富驿、七天、速8、如家、汉庭、玉兰招待所、希尔顿、布丁、安泰旅馆、格林豪泰、锦江之星、桔子水晶和市区的妇科医院，生意都很好。我好奇为什么世界上我们国家人流率那么高。猜想一方面可能得怪小伙子头脑和器具都在必要的时候假装彷徨和无知，根本没有细腻，没有温柔；还得怪生物老师依然步履匆急，跳着上课，跳过很多章节。如果生物老师跟医院有往来，未尝不能以此解释人流率如此之高的背后深藏的丑恶社会原因。还有相当一部分时间被电子屏幕占据，真不知是跟微信恋爱还是跟哪个怪物恋爱，未来如《Her》，跟机器弹恋爱是可能的。</p>
+<p>丈母娘倒是没怎么变，只是疑问句换了宾语，从“有没有二八自行车、有没有手表、有没有缝纫机？”变成了“有没有车，有没有房，有没有出众的繁殖能力？”</p>
+<p>我脑中长久酝酿，长久积沉。每次在洗澡净身抚摸自己时，觉得应该撰写一封给未来女朋友的书信。但当我穿好内裤（你不用关心，我写信时是不是穿了内裤，穿了哪款，是不是什么都不穿），手中执笔，文字的墨水在笔杆中部堵住，笔尖出黑，时有时无。</p>
+<p>浓情淡愫，胡吹海嘘，文分如何把握，才情炫几分，情感浓稠度占比，过了显矫情，少了似薄轻。想表达的东西过多，多得可能变成认识你之前我的自传。外国有位男子，自杀前开始写遗书，写了几十个年，没死成，这种人属于执行力差的。也许我写到小鸡鸡都硬朗不起来了，你还没有出现，这未尝不是没有可能，夜里，我再看一遍《独自等待》。</p>
+<p>我在一个看不见蝴蝶的地方，让胸中憋溢的文字在把我胸撑成C之前，一一被安置，四溅的话语逐字躺于纸上，盖上被子，待你掀开。写我之所想，述我之所思，你读到后在脑海里浮现的是一个男孩，而不是一个流氓。</p>
+<p>在某年某月某日的某一个时辰的某一分钟，你使我看见，我使你看见，我们彼此对视，如果顺利，我们从对视那一眼到认识，然后到进入彼此的空间。这得益于你在那一分钟之前，繁堵的交通没有把你困在路上，又或正是因为你被堵在路上，我们得以在天黑见面。往上追溯，还得是我们的爹娘都在某一时刻都在拼命花力气造着我们，有功劳也有苦劳。由此往前，还得归功于我们的爷爷奶奶，在另一时刻拼命花力气造了我们的爹娘。再往前，我们的关系真的要从宇宙的关系开始说起了。</p>
+<p>我们健康成长，在不同的地方接受阳光普照，喝不同地方的水，发育身上该发育的各个器官。无月为朔，满月为望。没有任何东西起源于无。得且诚谢“偶然”、“巧合”这两者，使我们关系得以从起源的高峰处开始流淌。世界溷浊和错乱，只有你的眼睛是清澈的，但只有我能在其中倒映。</p>
+<p>也许初始，我们就站在沼泽地，各自沦陷，越来越深，爱之浓像地心深处带来的重力作用，无法躲避和抵抗，与生俱来的纽带，上天安排；或者我们如履刨冰，行动拿着满滚烫茶水的杯子，小心翼翼，嘴唇轻触。</p>
+<p>站在你身后，双手圈住你腰，这种喜暖文字无法表述；你在阳光下翻着书，时不时被书里的文字逗笑，这种场景文字无法倾诉；你离开几天，我沉沦在你留下的情感余温里，这种失落文字无法描述……</p>
+<p>而后直到我们成为情人，如《爱的多重奏》里头说，各自两滴初始皆是独立的水珠逐渐融合。也像两种不同的饺子馅一样，碎得彻彻底底而得以交织。我们我们感知、抵抗、交流、伤怀、回应、丰富这个世界的接触面。你有你的世界观和生活经验，我有我的肉体观和时代之气而染得的性情，各自在各自的眼里看到另一个花园。并且在我们融合之前，我们能确定我们不是兄妹，或者没有其他不可抗拒的不可在一起的因素。</p>
+<p>刘瑜说，找一个对新鲜的知识、品格的改进、情感的扩张有胃口的人，一起长大。但理想的爱人可能不存在，所有的条例都不再有关系，如果你出现，我心中他妈的就想起一句话，我他妈的要跟这个女孩共度余生，共同制造让床架崩塌的灾难。</p>
+<p>对于爱情的定义，另一个女博士说，爱情不是主义，爱情是电光石火的艺术家，是慰藉彼此的温暖，是在完成生理需求基础上发展起来并且源源不断让你不能自拔的感情需求。说完就一个人喝酒去了。</p>
+<p>“他人即地狱。”在两性关系中，萨特这句话给了单身者一个响亮的口号。毕竟两人一捆绑，想来是有些可怕的。你我的生活被打破，你我的时间得移除一部分用来维系情感，而维系情感不是杀一条鱼，杀一只鸡，杀完就了事，得在亲吻、逛街、吃饭、看电影、上床、抚摸、壁咚、怀抱、做饭中投入时间。情感增加的浪花，看到或者看不到，溢出来的爱意，在东北冻住或者冻不住。</p>
+<p>但寂寞加上性爱不会与爱情之间划上等号。在第一遍看完《爱的艺术》后，我喝了杯水，平静了絮乱，觉得爱太艰难了。第二遍看完《爱的艺术》，我朝车外看了看，觉得爱太简单了。春去春又来，我会委身其中吗？</p>
+<p>一个女博士在醉酒后，嘴里吐出一句分量较重的话：在爱情里，就是互相分享内在和外在生活状态，互相分享各自拥有的私人肉体。说完就吐了。</p>
+<p>互相分享各自拥有的私人肉体是美好的，我一直觉得我的身体和灵魂都不只是属于自己，也属于世界。我相信我们彼此互动，能到达一个前所未有的体验高度。你也许会在过程中，在灵和肉都融合的那一刻，情不自禁得哭出来，不知所措。小说《挪威的森林》里，女主和她男朋友怎么实验都不行，始终都不行，倘若他们实验方法正确，从科学角度，现代人类若真的存在这种不可交配的情况，我希望我们不是。留学时，住一公寓，每天夜里，楼上的一堆外国男女分别在三点，四点，五点摇晃、运动和喊叫，那一段时间我生理和作息紊乱，睡眠质量差。我希望我们在达到前所未有的体验高度的同时能保持做人的底线，不影响他人，周围邻里不能因为我们到达高度而没睡好。</p>
+<p>“爱是恒久忍耐，又有恩慈；爱是不嫉妒，爱是不自夸，不张狂，不做害羞的事；不求自己的益处，不轻易发怒，不计算人的恶 ，不喜欢不义，只喜欢真理；凡事包容，凡事相信，凡事盼望，凡事忍耐；爱是永不止息。”每次假期我回家，我娘都跟我说一遍这段定义，（应该是源泉，比较合适）劝我不要做害羞的事，潜在的意思是快去找个人爱，好好爱，不要自己在房间里做害羞的事。</p>
+<p>那个人就是你吧。</p>
+<p>顺颂时祺，夏安期遇</p>
+<p>月庄</p>
+</div><div class="tags"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a><a href="/tags/%E5%B7%B4%E9%BB%8E/">巴黎</a></div><div class="post-nav"><a class="pre" href="/2017/08/04/article/%E8%8A%B1%E9%9D%A2%E4%BA%A4%E7%9B%B8%E6%98%A0/">花面交相映</a><a class="next" href="/2017/07/16/article/%E5%A6%82%E6%98%AF%E6%88%91%E9%97%BB%E4%BA%8C%E5%8D%81%E5%8F%88%E4%B8%83/">如是我闻二十又七</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'UyUavq9vauEaLPHGLLb1XitC-gzGzoHsz',
+  appKey:'I2PSrQIfYiPtJrHNNtvNl2t0',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yuezhuang.me"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E5%AD%A6/">文学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%95%BF%E7%AF%87%E5%B0%8F%E8%AF%B4/">长篇小说</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8/" style="font-size: 15px;">功能安全</a> <a href="/tags/%E6%A0%87%E5%87%86%E8%AE%A4%E8%AF%81/" style="font-size: 15px;">标准认证</a> <a href="/tags/%E9%9B%AA%E4%B9%8B%E5%BD%B1/" style="font-size: 15px;">雪之影</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 15px;">随笔</a> <a href="/tags/%E5%B7%B4%E9%BB%8E/" style="font-size: 15px;">巴黎</a> <a href="/tags/%E9%87%8C%E6%96%AF%E6%9C%AC/" style="font-size: 15px;">里斯本</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 15px;">上海</a> <a href="/tags/%E6%97%B6%E9%97%B4/" style="font-size: 15px;">时间</a> <a href="/tags/%E4%B8%A4%E6%80%A7/" style="font-size: 15px;">两性</a> <a href="/tags/%E5%8D%97%E6%B5%94/" style="font-size: 15px;">南浔</a> <a href="/tags/%E6%84%8F%E5%A4%A7%E5%88%A9/" style="font-size: 15px;">意大利</a> <a href="/tags/%E6%AF%94%E5%88%A9%E6%97%B6/" style="font-size: 15px;">比利时</a> <a href="/tags/%E5%BE%B7%E5%9B%BD/" style="font-size: 15px;">德国</a> <a href="/tags/TODO/" style="font-size: 15px;">TODO</a> <a href="/tags/%E9%B2%81%E8%BF%85/" style="font-size: 15px;">鲁迅</a> <a href="/tags/%E9%99%88%E4%B8%B9%E9%9D%92/" style="font-size: 15px;">陈丹青</a> <a href="/tags/%E8%A5%BF%E7%8F%AD%E7%89%99/" style="font-size: 15px;">西班牙</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/01/13/article/2021-01-20/">去年往事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/13/article/2020-09-13/">欢喜故事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/13/article/2020-07-13/">盛夏故事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/02/article/2020-06-2/">阅读笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/22/article/2020-05-24/">关于形式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/article/2020-05-17/">艺术家与家务</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/article/2020-04-30/">人民不需要文艺</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/article/2020-04-22/">挂水记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/17/article/2020-04-17/">计划性与随意性</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/article/2020-03-03/">睡</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/cs/2020-09-03/">形式化方法在认证中的应用与思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/22/article/2020-01-22/">无限的雾层层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/28/article/2019-06-28/">每一阵风都是命运</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/article/2019-05-15%20-%202/">在夜空中钻进云里</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/article/2018-11-18/">出现又离开</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/poem/2019-05-15/">黄昏记忆</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/article/2018-09-17/">永恒开始褪色</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/article/2018-09-04/">痛苦的几个瞬间</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/article/2018-09-14/">说一说上海</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/03/article/%E9%BB%84%E6%98%8F%E4%B9%8B%E5%90%BB4/">黄昏之吻（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/31/article/2018-07-31/">里斯本的肖像</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/28/poem/2018-07-15/">二〇一八七月辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/15/article/%E6%B8%85%E5%8D%95%E9%87%8C%E7%9A%84%E7%94%9F%E6%B4%BB/">清单里的生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/13/todo/2018-07-13/">TODO</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/14/article/2018-06-11-2/">大雨</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.fanyeong.com/" title="EricFan" target="_blank">EricFan</a><ul></ul><a href="https://shuge.org/" title="书格" target="_blank">书格</a><ul></ul><a href="https://ahdw.giize.com/" title="随机森林" target="_blank">随机森林</a><ul></ul><a href="https://www.yocson.com/" title="配信中" target="_blank">配信中</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 19902021 <a href="/." rel="nofollow">月庄文字.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

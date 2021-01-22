@@ -1,13 +1,170 @@
-extends base
-block title
-  title= page.title + ' | ' + config.title
-block content
-  .post
-    h1.post-title= page.title
-    .post-content
-      != page.content
-  if page.donate
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
-  if page.comments
-    include _partial/comments.pug
-
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>About ME | 月庄文字</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 5.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">About ME</h1><a id="logo" href="/.">月庄文字</a><p class="description"></p></div><div id="nav-menu"><a href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a class="current" href="/about/"><i class="fa fa-user"> About</i></a><a target="_blank" rel="noopener" href="https://www.weibo.com/fangbin1990/home?wvr=5"><i class="fa fa-weibo"> </i></a><a target="_blank" rel="noopener" href="https://www.instagram.com/yue.zhuang/?hl=en"><i class="fa fa-instagram"> </i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">About ME</h1><div class="post-content"><hr>
+<p>University Paris Diderot - Paris 7<br>Laboratory IRIF<br>Sophie Germain, 4061<br>wechat: yuezhuangwenzi<br><a href="mailto:&#98;&#x66;&#97;&#110;&#103;&#64;&#x69;&#114;&#105;&#102;&#46;&#102;&#114;">&#98;&#x66;&#97;&#110;&#103;&#64;&#x69;&#114;&#105;&#102;&#46;&#102;&#114;</a><br><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/bin-fang-53092348/">linkedin</a></p>
+<h3 id="Profile"><a href="#Profile" class="headerlink" title="Profile"></a>Profile</h3><p>I am now a senior research engineer in OS kernel lab at Huawei since 2019. I finished my Ph.d as a joint-Ph.d between East China Normal University and Université Paris Diderot under supervision of <a target="_blank" rel="noopener" href="https://faculty.ecnu.edu.cn/s/1018/t/11459/main.jspy">Geguang Pu</a>, <a target="_blank" rel="noopener" href="https://www.irif.fr/~abou/">Ahmed Bouajjani</a> and <a target="_blank" rel="noopener" href="https://www.irif.fr/~sighirea/">Mihaela Sighireanu</a>. My research interests are <strong>formal modelling and verification</strong>, <strong>refinement</strong>  and <strong>static analysis based on abstract interpretation</strong>. And I am working on enhancing adoption of formal methods using in software industry.</p>
+<h4 id="keywords"><a href="#keywords" class="headerlink" title="keywords"></a>keywords</h4><p>Program Verification, Formal Motheds</p>
+<h3 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h3><table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Place</th>
+<th>Title</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sep 2014 - Jul 2018</td>
+<td>Université Paris Diderot &amp; East China Normal University</td>
+<td>Ph.D of Computer Science, Program Verification</td>
+</tr>
+<tr>
+<td>Sep 2013 - July 2014</td>
+<td>East China Normal University</td>
+<td>Master, Software Engineering</td>
+</tr>
+<tr>
+<td>Sep 2010 - Jun 2013</td>
+<td>East China Normal University</td>
+<td>Bachelor, Software Engineering</td>
+</tr>
+</tbody></table>
+<h3 id="Experience-amp-Project"><a href="#Experience-amp-Project" class="headerlink" title="Experience &amp; Project"></a>Experience &amp; Project</h3><table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Role</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2015-2017 Paris</td>
+<td>Phd project, Static Analyzer</td>
+<td>Built <a target="_blank" rel="noopener" href="https://github.com/fangbin/AI_framework">Mman</a> (in OCaml), a static analyzer for heap-maniplulating programs based on <a target="_blank" rel="noopener" href="https://pdfs.semanticscholar.org/e14e/9bab29d48f364d0d1fb628eb82a07a245da4.pdf">Abstract Interpretation</a>,  Formal verification for categories of memory models</td>
+</tr>
+<tr>
+<td>2014 Shanghai</td>
+<td>Teaching Assistants</td>
+<td>Tools of Program Analysis, Testing, and Verification 2014 Semester 1, ECNU</td>
+</tr>
+<tr>
+<td>2014 Shanghai</td>
+<td>Program Analysis Intern</td>
+<td>Shanghai Key Laboratory of Trustworthy Computing</td>
+</tr>
+<tr>
+<td>2013-2014 Beijing, Shanghai</td>
+<td>Researcher, System modeling and Verification</td>
+<td>Formal verified components of real time operating system developed by Beijing Institute of Control Engineering</td>
+</tr>
+</tbody></table>
+<h3 id="Awards"><a href="#Awards" class="headerlink" title="Awards"></a>Awards</h3><table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Scholarship</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Oct 2014 - Oct 2018</td>
+<td>China National Scholarship for International Doctorate</td>
+</tr>
+<tr>
+<td>Jul 2017</td>
+<td>Travel grant and registration waiver to Marktoberdorf School</td>
+</tr>
+<tr>
+<td>Jul 2016</td>
+<td>Travel grant and registration waiver to MOVEP School</td>
+</tr>
+</tbody></table>
+<h3 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h3><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Languages</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Programming</td>
+<td>OCaml</td>
+</tr>
+<tr>
+<td>Formalisation /Verification</td>
+<td>Event-B / VCC / Frama-c / Coq  …</td>
+</tr>
+<tr>
+<td>other</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<h3 id="Papers"><a href="#Papers" class="headerlink" title="Papers"></a>Papers</h3><table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Paper</th>
+<th>pdf, link</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2018</td>
+<td><strong>Techniques for Formal Modelling and Verification on Dynamic Memory Allocators</strong>.  <br> <strong>Bin Fang</strong>, Ph.D thesis,</td>
+<td><a href="/papers/thesis_FB.pdf">pdf</a>, <a href="/papers/phd-fangbin.pdf">slides</a></td>
+</tr>
+<tr>
+<td>2017</td>
+<td><strong>Formal Modelling of List Based Dynamic Memory Allocators</strong>. <br> <strong>Bin Fang</strong>, Mihaela Sighireanu, Journal of SCIENCE CHINA Information Sciences, 2017,</td>
+<td><a href="/papers/17SCIS.pdf">pdf</a>, <a target="_blank" rel="noopener" href="http://engine.scichina.com/publisher/scp/journal/SCIS/doi/10.1007/s11432-017-9280-9?slug=abstract">web</a></td>
+</tr>
+<tr>
+<td>2017</td>
+<td><strong>A Refinement Hierarchy for Free List Memory Allocators</strong>. <br> <strong>Bin Fang</strong>, Mihaela Sighireanu. ACM SIGPLAN International Symposium on Memory Management (ISMM) 2017.</td>
+<td><a href="/papers/17ISMMlong.pdf">pdf</a></td>
+</tr>
+<tr>
+<td>2016</td>
+<td><strong>Hierarchical Shape Abstraction of Free-List Memory Allocators</strong>. <br> <strong>Bin Fang</strong>, Mihaela Sighireanu. 26th International Symposium on Logic-Based Program Synthesis and Transformation LOPSTR 2016.</td>
+<td><a href="/papers/17LOPSTR.pdf">pdf</a>,  <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1608.05676">web</a></td>
+</tr>
+<tr>
+<td>2015</td>
+<td><strong>Formal Development of a Real-Time Operating System Memory Manager</strong>. <br> Wen Su, Jean-Raymond Abrial, Geguang Pu, <strong>Bin Fang</strong>. 20th International Conference on Engineering of Complex Computer Systems ICECCS 2015.</td>
+<td><a href="/papers/ICECCS15.pdf">pdf</a>, <a target="_blank" rel="noopener" href="https://pdfs.semanticscholar.org/ba18/42412e27604f19dcb6620d7a81f426517289.pdf">web</a></td>
+</tr>
+<tr>
+<td>2014</td>
+<td><strong>Automated Coverage-Driven Test Data Generation Using Dynamic Symbolic Execution</strong>.  <br> Ting Su, Siyuan Jiang, Geguang Pu, <strong>Bin Fang</strong>, Jifeng He, Jun Yan, Jianjun Zhao. Eighth International Conference on Software Security and Reliability, SERE 2014.</td>
+<td><a href="/papers/SERE14.pdf">pdf</a>, <a target="_blank" rel="noopener" href="https://www.lab301.cn/caut/files/coverage_driven_testing.pdf">web</a></td>
+</tr>
+<tr>
+<td>2014</td>
+<td><strong>Runtime Verification by Convergent Formula Progression</strong>. <br> Yan Shen, Jianwen Li, Zheng Wang, <strong>Bin Fang</strong>, Geguang Pu and Wangwei Liu. 21st Asia-Pacific Software Engineering Conference APSEC 2014.</td>
+<td><a target="_blank" rel="noopener" href="http://ieeexplore.ieee.org/document/7091318/">web</a></td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>
+<p><strong>This blog is the place in which I put my literature writing (almost in Chinese) that records the feeling of every moment in my life and technical articles for popular science including algorithm, programming and verification theory.</strong></p>
+<p><a target="_blank" rel="noopener" href="http://research.microsoft.com/en-us/projects/slam/">SLAM</a>, <a target="_blank" rel="noopener" href="https://frama-c.com/">Frama-c</a>, <a target="_blank" rel="noopener" href="http://www.cprover.org/cbmc/">CBMC</a>, <a target="_blank" rel="noopener" href="http://klee.github.io/">KLEE</a>, <a target="_blank" rel="noopener" href="http://llvm.org/">LLVM</a>, <a target="_blank" rel="noopener" href="https://rise4fun.com/z3/tutorial/guide">Z3</a>, <a target="_blank" rel="noopener" href="http://www.event-b.org/">Event-B</a>, <a target="_blank" rel="noopener" href="https://www.irif.fr/">IRIF lab</a>, <a target="_blank" rel="noopener" href="https://lab301.cn/blog/?lang=en">SSEL lab</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://matome.naver.jp/odai/2137767325413319701">いしかわ たくぼく</a></p>
+<p><a target="_blank" rel="noopener" href="http://book.ifeng.com/a/20150316/13364_0.shtml">只要想起一生中后悔的事 梅花便落满了南山</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.goodreads.com/book/show/19283177-le-mythe-de-sisyphe-d-albert-camus-fiche-de-lecture">Le Mythe de Sisyphe (Albert Camus)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.goodreads.com/book/show/14142.The_Art_of_Loving">The Art of Loving (Erich Fromm)</a></p>
+</blockquote>
+<hr>
+</div></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'UyUavq9vauEaLPHGLLb1XitC-gzGzoHsz',
+  appKey:'I2PSrQIfYiPtJrHNNtvNl2t0',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yuezhuang.me"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E5%AD%A6/">文学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%95%BF%E7%AF%87%E5%B0%8F%E8%AF%B4/">长篇小说</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8/" style="font-size: 15px;">功能安全</a> <a href="/tags/%E6%A0%87%E5%87%86%E8%AE%A4%E8%AF%81/" style="font-size: 15px;">标准认证</a> <a href="/tags/%E9%9B%AA%E4%B9%8B%E5%BD%B1/" style="font-size: 15px;">雪之影</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 15px;">随笔</a> <a href="/tags/%E5%B7%B4%E9%BB%8E/" style="font-size: 15px;">巴黎</a> <a href="/tags/%E9%87%8C%E6%96%AF%E6%9C%AC/" style="font-size: 15px;">里斯本</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 15px;">上海</a> <a href="/tags/%E6%97%B6%E9%97%B4/" style="font-size: 15px;">时间</a> <a href="/tags/%E4%B8%A4%E6%80%A7/" style="font-size: 15px;">两性</a> <a href="/tags/%E5%8D%97%E6%B5%94/" style="font-size: 15px;">南浔</a> <a href="/tags/%E6%84%8F%E5%A4%A7%E5%88%A9/" style="font-size: 15px;">意大利</a> <a href="/tags/%E6%AF%94%E5%88%A9%E6%97%B6/" style="font-size: 15px;">比利时</a> <a href="/tags/%E5%BE%B7%E5%9B%BD/" style="font-size: 15px;">德国</a> <a href="/tags/TODO/" style="font-size: 15px;">TODO</a> <a href="/tags/%E9%B2%81%E8%BF%85/" style="font-size: 15px;">鲁迅</a> <a href="/tags/%E9%99%88%E4%B8%B9%E9%9D%92/" style="font-size: 15px;">陈丹青</a> <a href="/tags/%E8%A5%BF%E7%8F%AD%E7%89%99/" style="font-size: 15px;">西班牙</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/01/13/article/2021-01-20/">去年往事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/13/article/2020-09-13/">欢喜故事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/13/article/2020-07-13/">盛夏故事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/02/article/2020-06-2/">阅读笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/22/article/2020-05-24/">关于形式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/article/2020-05-17/">艺术家与家务</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/article/2020-04-30/">人民不需要文艺</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/article/2020-04-22/">挂水记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/17/article/2020-04-17/">计划性与随意性</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/article/2020-03-03/">睡</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/cs/2020-09-03/">形式化方法在认证中的应用与思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/22/article/2020-01-22/">无限的雾层层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/28/article/2019-06-28/">每一阵风都是命运</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/article/2019-05-15%20-%202/">在夜空中钻进云里</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/article/2018-11-18/">出现又离开</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/poem/2019-05-15/">黄昏记忆</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/article/2018-09-17/">永恒开始褪色</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/article/2018-09-04/">痛苦的几个瞬间</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/article/2018-09-14/">说一说上海</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/03/article/%E9%BB%84%E6%98%8F%E4%B9%8B%E5%90%BB4/">黄昏之吻（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/31/article/2018-07-31/">里斯本的肖像</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/28/poem/2018-07-15/">二〇一八七月辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/15/article/%E6%B8%85%E5%8D%95%E9%87%8C%E7%9A%84%E7%94%9F%E6%B4%BB/">清单里的生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/13/todo/2018-07-13/">TODO</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/14/article/2018-06-11-2/">大雨</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.fanyeong.com/" title="EricFan" target="_blank">EricFan</a><ul></ul><a href="https://shuge.org/" title="书格" target="_blank">书格</a><ul></ul><a href="https://ahdw.giize.com/" title="随机森林" target="_blank">随机森林</a><ul></ul><a href="https://www.yocson.com/" title="配信中" target="_blank">配信中</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 19902021 <a href="/." rel="nofollow">月庄文字.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

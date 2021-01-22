@@ -1,68 +1,25 @@
-extends base
-
-block title
-  title= page.title + ' | ' + config.title
-
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
-
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
-
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
-
-    include _partial/tag.pug
-    include _partial/post_nav.pug
-
-    if page.comments
-      include _partial/comments.pug
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>抓住我心的引力 | 月庄文字</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 5.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">抓住我心的引力</h1><a id="logo" href="/.">月庄文字</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a target="_blank" rel="noopener" href="https://www.weibo.com/fangbin1990/home?wvr=5"><i class="fa fa-weibo"> </i></a><a target="_blank" rel="noopener" href="https://www.instagram.com/yue.zhuang/?hl=en"><i class="fa fa-instagram"> </i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">抓住我心的引力</h1><div class="post-meta">Dec 25, 2012<span> | </span><span class="category"><a href="/categories/%E6%96%87%E5%AD%A6/">文学</a></span></div><a class="disqus-comment-count" href="/2012/12/25/article/%E6%8A%93%E4%BD%8F%E6%88%91%E5%BF%83%E7%9A%84%E5%BC%95%E5%8A%9B/#vcomment"><span class="valine-comment-count" data-xid="/2012/12/25/article/%E6%8A%93%E4%BD%8F%E6%88%91%E5%BF%83%E7%9A%84%E5%BC%95%E5%8A%9B/"></span><span> Comment</span></a><div class="post-content"><p><img src="/images/nx.png"></p>
+<p>我一直不曾感觉有一种力量，在外处能变成抓住我心的引力，只有地球一直抓着我，我拼命得跳，也只能跳一米六零的高度。小鸡鸡向下垂挂，见到漂亮姑娘才会拼命点头打招呼，使劲叫你好。而我认识的姑娘中，些许都想有个温暖的小屋，收拾得干干净净。我觉得，我跟她们不是一类。</p>
+<p>《动物凶猛》一开头就把我紧紧抓住，“我羡慕那些来自乡村的人，在他们的记忆里总有一个回味无穷的故乡，尽管这故乡其实可能是个贫困凋敝毫无诗意的僻壤，但只要他们乐意，便可以尽情地遐想自己丢殆尽的某些东西仍可靠地寄存在那个一无所知的故乡，从而自我原寡和自我慰藉。” </p>
+<p>我在各地穿梭，捡拾零碎的记忆。</p>
+<p>从小混打在在徽州祠堂。少时喜水墨，观各家堂前所挂中堂，轮廓于心，归家便能蘸墨起笔。随意摊石撇竹、勾山留白、展叶藏雪、晕花点蕊。年少血气方刚，技意不精运缺神，才华不敛气不达。但只要参加书法比赛，一等奖奖状上都是我的名字。其他同学再怎么练，字还是那么丑，我看着揪心。到后来，我也无趣往之，参加不参加，于我都不重要。我心思，这乃基因使然，骨子里就会，骨子里就继承了我老爸的水墨惯性。家里旧柜子里，我翻到老爸年轻时候写的小楷，行书，流畅潇洒，更是让我坚定了我的想法。而今已无当时心境，更是残灵而不溢。</p>
+<p>年纪大些，在朱熹讲学之地，在古紫阳书院的青石板上读书、写字，坐在教室后拿着mp4看陈冠希的照片，听苍姐姐的嗓音，走出教室，一切都似乎变得不真实起来。细胞和器官在阳光下拼命生长，意识和思想在斗山街的小巷里酝酿。在紫阳书院后山的竹林里，阳光错过竹叶，斑斓得铺洒下来，铺洒在我的脸上，她的脸上，还有她脖子以下乳房以上的诱惑地带。我们小心地靠着两根竹子而坐，竹子往后倾移，落下几片叶子。屁股下垫着塑料袋，周围泥草味清淡，只有风和竹叶的交谈声，几只春鸟的互相问候声，制造属于它们的爱情。她拉开衣领，把我的手放在了她的怀里，我手指按了按，第一次感觉到柔软和紧张，还有一些恐惧，一切都似乎变得真实又不真实，我按了按，就抽出了手。如果我能看见自己的脸，我应该脸红了。后来她的乳房发育得很好，我觉得那是我的功劳和点拨。以至于任何发育良好的姑娘，我都觉得背后都是某个男生的功劳。</p>
+<p>我在江浙的水乡里，度过一个个暑假。老爸老妈忙着做生意。我骑着单车，在镇上驰骋，这个镇号称中国十大魅力名镇之一。如果我是长发，头发肯定横着飘起来，给这个镇又增加不少魅力。我跟逆行的一位大叔撞在一起，他的自行车前轮被我的自行车前轮撞曲了，像一根有环的泡面面条。我笑了起来。大叔一下子失去了理智，不让我走，要我赔偿。我看着弯曲的轮胎，又大笑了起来。大叔以为我是傻子，就提着把手，生气得走了。</p>
+</div><div class="tags"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a><a href="/tags/%E4%B8%8A%E6%B5%B7/">上海</a></div><div class="post-nav"><a class="pre" href="/2014/03/25/article/%E6%81%A8%E6%98%A5%E8%BF%9F/">恨春迟</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'UyUavq9vauEaLPHGLLb1XitC-gzGzoHsz',
+  appKey:'I2PSrQIfYiPtJrHNNtvNl2t0',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yuezhuang.me"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E5%AD%A6/">文学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%95%BF%E7%AF%87%E5%B0%8F%E8%AF%B4/">长篇小说</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8/" style="font-size: 15px;">功能安全</a> <a href="/tags/%E6%A0%87%E5%87%86%E8%AE%A4%E8%AF%81/" style="font-size: 15px;">标准认证</a> <a href="/tags/%E9%9B%AA%E4%B9%8B%E5%BD%B1/" style="font-size: 15px;">雪之影</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 15px;">随笔</a> <a href="/tags/%E5%B7%B4%E9%BB%8E/" style="font-size: 15px;">巴黎</a> <a href="/tags/%E9%87%8C%E6%96%AF%E6%9C%AC/" style="font-size: 15px;">里斯本</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 15px;">上海</a> <a href="/tags/%E6%97%B6%E9%97%B4/" style="font-size: 15px;">时间</a> <a href="/tags/%E4%B8%A4%E6%80%A7/" style="font-size: 15px;">两性</a> <a href="/tags/%E5%8D%97%E6%B5%94/" style="font-size: 15px;">南浔</a> <a href="/tags/%E6%84%8F%E5%A4%A7%E5%88%A9/" style="font-size: 15px;">意大利</a> <a href="/tags/%E6%AF%94%E5%88%A9%E6%97%B6/" style="font-size: 15px;">比利时</a> <a href="/tags/%E5%BE%B7%E5%9B%BD/" style="font-size: 15px;">德国</a> <a href="/tags/TODO/" style="font-size: 15px;">TODO</a> <a href="/tags/%E9%B2%81%E8%BF%85/" style="font-size: 15px;">鲁迅</a> <a href="/tags/%E9%99%88%E4%B8%B9%E9%9D%92/" style="font-size: 15px;">陈丹青</a> <a href="/tags/%E8%A5%BF%E7%8F%AD%E7%89%99/" style="font-size: 15px;">西班牙</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/01/13/article/2021-01-20/">去年往事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/13/article/2020-09-13/">欢喜故事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/13/article/2020-07-13/">盛夏故事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/02/article/2020-06-2/">阅读笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/22/article/2020-05-24/">关于形式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/article/2020-05-17/">艺术家与家务</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/article/2020-04-30/">人民不需要文艺</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/article/2020-04-22/">挂水记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/17/article/2020-04-17/">计划性与随意性</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/article/2020-03-03/">睡</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/cs/2020-09-03/">形式化方法在认证中的应用与思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/22/article/2020-01-22/">无限的雾层层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/28/article/2019-06-28/">每一阵风都是命运</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/article/2019-05-15%20-%202/">在夜空中钻进云里</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/article/2018-11-18/">出现又离开</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/poem/2019-05-15/">黄昏记忆</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/article/2018-09-17/">永恒开始褪色</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/article/2018-09-04/">痛苦的几个瞬间</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/article/2018-09-14/">说一说上海</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/03/article/%E9%BB%84%E6%98%8F%E4%B9%8B%E5%90%BB4/">黄昏之吻（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/31/article/2018-07-31/">里斯本的肖像</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/28/poem/2018-07-15/">二〇一八七月辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/15/article/%E6%B8%85%E5%8D%95%E9%87%8C%E7%9A%84%E7%94%9F%E6%B4%BB/">清单里的生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/13/todo/2018-07-13/">TODO</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/14/article/2018-06-11-2/">大雨</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.fanyeong.com/" title="EricFan" target="_blank">EricFan</a><ul></ul><a href="https://shuge.org/" title="书格" target="_blank">书格</a><ul></ul><a href="https://ahdw.giize.com/" title="随机森林" target="_blank">随机森林</a><ul></ul><a href="https://www.yocson.com/" title="配信中" target="_blank">配信中</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 19902021 <a href="/." rel="nofollow">月庄文字.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

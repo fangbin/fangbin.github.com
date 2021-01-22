@@ -1,68 +1,54 @@
-extends base
-
-block title
-  title= page.title + ' | ' + config.title
-
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
-
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
-
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
-
-    include _partial/tag.pug
-    include _partial/post_nav.pug
-
-    if page.comments
-      include _partial/comments.pug
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>形式化方法在认证中的应用与思考 | 月庄文字</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 5.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">形式化方法在认证中的应用与思考</h1><a id="logo" href="/.">月庄文字</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a target="_blank" rel="noopener" href="https://www.weibo.com/fangbin1990/home?wvr=5"><i class="fa fa-weibo"> </i></a><a target="_blank" rel="noopener" href="https://www.instagram.com/yue.zhuang/?hl=en"><i class="fa fa-instagram"> </i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">形式化方法在认证中的应用与思考</h1><div class="post-meta">Mar 13, 2020<span> | </span><span class="category"><a href="/categories/%E5%AE%89%E5%85%A8/">安全</a></span></div><a class="disqus-comment-count" href="/2020/03/13/cs/2020-09-03/#vcomment"><span class="valine-comment-count" data-xid="/2020/03/13/cs/2020-09-03/"></span><span> Comment</span></a><div class="post-content"><p>工业届很多对于安全攸关系统的标准，比如 RCTA DO-178C，ISO 26262，CC-EAL，都有提到用形式化方法，作为过认证时用来确保安全的一种手段。然而，通过形式化得到的验证结果，用来满足认证机构的预期拿到认证证书并不是那么容易。工业标准的制定周期和更新速度一般都不跟上学术研究在工业界应用的速度，如果一些新的技术出现，并有很多成功被工业界应用的案例，标准委员会才会开始评估，更新标准内容。</p>
+<h2 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h2><p>若把标准认证作为产品开发的一个部分，认证过程跟随整个产品的开发周期，中间各个阶段需要一直向认证机构提供交付件，其成本在整个开发过程占比是很大的。倘若软件开发过程清晰，文档全面，会大大增加认证效率。有人会说，可以尝试用形式化方法来减少测试工作和设计阶段的开销，比如在工程师写代码之前就发现系统的潜在设计漏洞，减少迭代次数，而问题是，形式化方法难道颇大，有相当高的入门门槛，并非直接拉来测试工程师就能胜任，因此利用形式化方法本身就是一个大的挑战，是否真的能带来成本的减少，充满不确定性，很不明朗。</p>
+<p>另一方面，从标准制定委员会、认证机构的接受程度角度看，也并不是特别乐观，这是由工业界的需求导致的。目前，形式化方法在认证中的利用本身就不是很广泛，除了 CC EAL6-7 级别有强烈需要，其他标准都并无真正需要，在车规标准 ISO 26262 里也只是提出建议（一个 <code>+</code>），而不是硬性要求（两个<code>++</code>）。我们把上千页的形式化描述和证明抛给认证机构，说，这是我们的数理证明结果，说明了产品的正确性，可以取代测试工作，但对于认证机构来说，测试报告比形式化报告更让人接受和信服，因为审视形式化报告本身就是一件难事。认证机构往往要求你出示测试过程报告，尽管你说你用了形式化方法，做了更加严格更加保证系统安全的事情。</p>
+<p>所以，归根结底，这两个问题不可避免：</p>
+<ol>
+<li>怎么权衡形式化方法带来的正向价值和采用形式化本身所投入的成本？（从商业成本角度）</li>
+<li>若采用形式化方法后，能否取代全部或者部分的现在已有的工作？能否在认证过程带来比基本测试更好的效果？（从软件工程角度）</li>
+</ol>
+<h2 id="让认证机构信服"><a href="#让认证机构信服" class="headerlink" title="让认证机构信服"></a>让认证机构信服</h2><p>如果采用形式化得到的验证结果，来取代基于测试的结果，认证结构往往会有以下这些疑问：怎么确保你用的形式化方法是正确的，或者说怎么说明你的证明是正确的证明？这比直接用测试报告抛给他们要来得困难的多。形式化方法是高级的玩物，但是却增加了沟通成本。</p>
+<p>简单的说，对实际采用的形式化方法，其需要满足以下三点：</p>
+<ol>
+<li>首先，得有数理模型，数理模型的描述语言有严格的语义和语法，不能模棱两可；</li>
+<li>采用的形式化方法必须是 sound；</li>
+<li>所有基于数理模型的假设都是合乎情理的。</li>
+</ol>
+<p>从早期的案例来看，在工业界能被成功运用的形式化方法大致可以分为以下几类：</p>
+<ul>
+<li>模型检测（model checking）</li>
+<li>定理证明（theorem proving）</li>
+<li>基于抽象解释的静态分析（static analysis based on abstract Interpretation）</li>
+</ul>
+<p>早在 2001 年，Airbus 公司开始集结一批人，尝试使用形式化方法，运用在航空软件开发上，同时，又要遵守航天的强制准入标准 DO-178B。Airbus 是第一个尝试结合形式化方法和遵循标准的工业公司。</p>
+<p>在项目中，他们利用了一些形式化工具（Caveat, aiT, Frama-C, Stackanalyzer, 等），加强了与学术界之间的讨论，特别是跟法国建立了一些研究项目，其中孵化出不少商用的工具，比如 Astree（基于抽象解释的静态分析工具），CAT等。航天和车载标准，往往要求软件产品开发过程中，用到的分析、验证、编译工具本身，都得，比如静态分析工具，编译器，也需要获得对应标准的认证，如果不能，就得提供给认证机构足够的评估报告。（<strong>另一方面说明，标准和认证制定了一套商业链</strong>）Caveat, aiT, Stackanalyzer 都是已经认证过 DO-178B标准的工具，要用这些形式化工具取代测试，同时能够过得标准的认证，Airbus 公司也做了不少的尝试。一个棘手的问题就是，覆盖率的问题。不同于测试，形式化验证是在一系列的性质上得到满足，比如一个函数的前置和后置条件，所以，我们必须说明，这些性质能够覆盖程序的所有行为。这也是认证机构侧重的第一个问题：怎么说明这一系列人工定义的性质，完整性和正确性是怎么保证的。</p>
+<p>Airbus 的实践，也推动了航天标准的更新，在 DO-178B 的基础上，更新版 DO-178C 开始考虑航天电子软件复杂性不断增加的状况，以及更多的确保系统软件安全的手段，比如形式化方法，MBSE，等，其中主要补充了以下四个方面的要求：</p>
+<ol>
+<li>软件工具验证 （Software Tool Qualification）</li>
+<li>基于模型的开发和验证 （Model Based Development and Verification MBSE）</li>
+<li>面向对象编程 （Object-Oriented Technology）</li>
+<li>形式化方法 （Formal Methods）</li>
+</ol>
+<p>可以看到，新技术的运用总是比标准快一步。另一个例子是互联网造车，软件定义汽车的未来趋势，也促使汽车领域对信息安全的标准制定（比如正在制定的 21434）。</p>
+<h2 id="形式化描述语言的选取"><a href="#形式化描述语言的选取" class="headerlink" title="形式化描述语言的选取"></a>形式化描述语言的选取</h2><p>形式化方法的起源地在欧洲，在欧洲的航空、地铁领域，形式化方法被利用的很广泛。CC-EAL 是欧洲制定的标准，包含七个安全等级，从 5 级以上，开始要求产品在开发的各阶段需要用形式化方法描述，确保层与层之间的一致性以及每层本身的正确性。认证机构也有很多形式化方法方面的评审员，他们基本上了解 Coq，B 方法等主流的形式化描述语言，并不会像其他标准的认证机构一样，对形式化方法感到头疼。</p>
+<p>认证机构并不会强制你选择某种语言，选取任何在业界知名或者被很多案例采用的形式化语言，都可以。当然，选择认证机构熟悉的形式化描述语言，好处是会减少沟通成本，模型报告给他们，并不需要很具体的说明。倘若我们自己开发了形式化描述语言，认证机构并不会不认可，但是他们会要你给出足够的案例实践、方法本身的评估，来说明成熟度已经达到工业要求。</p>
+<p>实际上，基于数理模型的开发（MBSE），是最符合工业标准的一种形式化验证手段，由于是自顶向下，因此可以保证从软件开发的各个阶段都有迹可循，认证机构也颇有好感。但是这种方式，很难应当到大型软件或者系统上。对于迭代多、更新频率高的产品，这种策略并不是很适用。因此，MBSE 多用在军工、航天等更新迭代少的场景中。而新兴的例如互联网造车，汽车系统的更新迭代犹如手机系统一样，倘若要对迭代次数多的产品过认证，但是又要走形式化路线，标准和实际之间就有一个鸿沟，就得再考虑考虑了。一是产品一直再更新迭代，过认证的节奏往往跟不上开发，后期就会多次进行增量认证，犹如一场离不了的婚姻。</p>
+<h2 id="我们真的需要吗？"><a href="#我们真的需要吗？" class="headerlink" title="我们真的需要吗？"></a>我们真的需要吗？</h2><p>如果标准的认证是强制准入准则，无法可说，过就行了。对于可有可无的认证，从商业角度看，认证是一个贴金的标签，能够增加竞争力，现在连奶粉都欧盟双认证了（e.g., 君乐宝奶粉），但是对消费者来说，真的是在意吗？比如汽车行业，过功能安全 ISO 26262 标准，可以说是一个锦上添花的东西，特斯拉没过证，凭设计和体验，却卖得很好。不能盲目对汽车驾驶系统所有组件都去过证，功能安全的过证成本是每行代码 5-10 美金（大概是这个数），这无疑会增加没必要的成本。但也不能说，过证没好处，这需要多方面配合，让过认证这一项发挥出最大的效力，使得过证真的能提高软件质量和安全性。</p>
+<p>倘若我们资金充足，又想打造精品，就大胆得用形式化方法，如果能用形式化帮助过证，并不是什么坏事。</p>
+</div><div class="tags"><a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8/">功能安全</a><a href="/tags/%E6%A0%87%E5%87%86%E8%AE%A4%E8%AF%81/">标准认证</a></div><div class="post-nav"><a class="pre" href="/2020/03/22/article/2020-03-03/">睡</a><a class="next" href="/2020/01/22/article/2020-01-22/">无限的雾层层</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'UyUavq9vauEaLPHGLLb1XitC-gzGzoHsz',
+  appKey:'I2PSrQIfYiPtJrHNNtvNl2t0',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yuezhuang.me"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E5%AD%A6/">文学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%95%BF%E7%AF%87%E5%B0%8F%E8%AF%B4/">长篇小说</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8/" style="font-size: 15px;">功能安全</a> <a href="/tags/%E6%A0%87%E5%87%86%E8%AE%A4%E8%AF%81/" style="font-size: 15px;">标准认证</a> <a href="/tags/%E9%9B%AA%E4%B9%8B%E5%BD%B1/" style="font-size: 15px;">雪之影</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 15px;">随笔</a> <a href="/tags/%E5%B7%B4%E9%BB%8E/" style="font-size: 15px;">巴黎</a> <a href="/tags/%E9%87%8C%E6%96%AF%E6%9C%AC/" style="font-size: 15px;">里斯本</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 15px;">上海</a> <a href="/tags/%E6%97%B6%E9%97%B4/" style="font-size: 15px;">时间</a> <a href="/tags/%E4%B8%A4%E6%80%A7/" style="font-size: 15px;">两性</a> <a href="/tags/%E5%8D%97%E6%B5%94/" style="font-size: 15px;">南浔</a> <a href="/tags/%E6%84%8F%E5%A4%A7%E5%88%A9/" style="font-size: 15px;">意大利</a> <a href="/tags/%E6%AF%94%E5%88%A9%E6%97%B6/" style="font-size: 15px;">比利时</a> <a href="/tags/%E5%BE%B7%E5%9B%BD/" style="font-size: 15px;">德国</a> <a href="/tags/TODO/" style="font-size: 15px;">TODO</a> <a href="/tags/%E9%B2%81%E8%BF%85/" style="font-size: 15px;">鲁迅</a> <a href="/tags/%E9%99%88%E4%B8%B9%E9%9D%92/" style="font-size: 15px;">陈丹青</a> <a href="/tags/%E8%A5%BF%E7%8F%AD%E7%89%99/" style="font-size: 15px;">西班牙</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/01/13/article/2021-01-20/">去年往事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/13/article/2020-09-13/">欢喜故事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/13/article/2020-07-13/">盛夏故事</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/02/article/2020-06-2/">阅读笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/22/article/2020-05-24/">关于形式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/article/2020-05-17/">艺术家与家务</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/article/2020-04-30/">人民不需要文艺</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/article/2020-04-22/">挂水记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/17/article/2020-04-17/">计划性与随意性</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/article/2020-03-03/">睡</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/cs/2020-09-03/">形式化方法在认证中的应用与思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/22/article/2020-01-22/">无限的雾层层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/28/article/2019-06-28/">每一阵风都是命运</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/article/2019-05-15%20-%202/">在夜空中钻进云里</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/article/2018-11-18/">出现又离开</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/poem/2019-05-15/">黄昏记忆</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/article/2018-09-17/">永恒开始褪色</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/article/2018-09-04/">痛苦的几个瞬间</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/article/2018-09-14/">说一说上海</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/03/article/%E9%BB%84%E6%98%8F%E4%B9%8B%E5%90%BB4/">黄昏之吻（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/31/article/2018-07-31/">里斯本的肖像</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/28/poem/2018-07-15/">二〇一八七月辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/15/article/%E6%B8%85%E5%8D%95%E9%87%8C%E7%9A%84%E7%94%9F%E6%B4%BB/">清单里的生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/13/todo/2018-07-13/">TODO</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/14/article/2018-06-11-2/">大雨</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.fanyeong.com/" title="EricFan" target="_blank">EricFan</a><ul></ul><a href="https://shuge.org/" title="书格" target="_blank">书格</a><ul></ul><a href="https://ahdw.giize.com/" title="随机森林" target="_blank">随机森林</a><ul></ul><a href="https://www.yocson.com/" title="配信中" target="_blank">配信中</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 19902021 <a href="/." rel="nofollow">月庄文字.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
