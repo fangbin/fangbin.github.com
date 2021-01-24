@@ -27,7 +27,7 @@ body {
   font-family: "STHeiti", "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 14px; }
+  font-size: 17px; }
 
 .body_container {
   padding: 0 60px;
@@ -172,7 +172,7 @@ div {
     margin: 0;
     color: #555;
     text-align: left;
-    font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif; }
+    font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "STHeiti", "Times New Roman", Georgia, Times, sans-serif; }
     .post .post-title a {
       color: #555; }
   .post .post-meta {
@@ -377,7 +377,7 @@ div {
   padding-bottom: .8em; }
   .post-archive h2 {
     margin: 0;
-    font: bold 25px / 1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif; }
+    font: bold 25px / 1.1 "ff-tisa-web-pro", "STHeiti", Cambria, "Times New Roman", Georgia, Times, sans-serif; }
   .post-archive .date {
     padding-right: .7em; }
 
@@ -424,7 +424,7 @@ blockquote::before,
 .stressed-quote::before {
   content: "\201C";
   display: block;
-  font-family: times;
+  font-family: "STHeiti";
   font-style: normal;
   font-size: 48px;
   color: #444;
