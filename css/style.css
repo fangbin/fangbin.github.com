@@ -183,7 +183,7 @@ div {
     display: inline;
     text-indent: .15em; }
     .post .post-meta:before {
-      font-family: "FontAwesome";
+      font-family: "Times New Roman", "FontAwesome";
       content: "\f073";
       padding-right: 0.3em; }
     .post .post-meta .category:before {
