@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  *
  * @package Maupassant
@@ -20,12 +19,12 @@ textarea,
 .MJXc-TeX-unknown-R,
 .pure-g [class*="pure-u"] {
   /* Set your content font stack here: */
-  font-family: "Times New Roman", "PingFangSC-Regular", Helvetica, "Helvetica Neue", "Segoe UI", "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif !important; }
+  font-family: "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif; }
 
 body {
   background-color: #FFF;
   color: #444;
-  font-family: SimSun, Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", "宋体", Heiti, "黑体", sans-serif;
+  font-family: "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px; }
