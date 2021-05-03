@@ -91,7 +91,7 @@ div {
       padding: 3px 20px 3px;
       line-height: 30px;
       color: #444;
-      font-size: 13px;
+      font-size: 14px;
       border: 1px solid transparent; }
       #header #nav-menu a:hover {
         border-bottom-color: #444; }
@@ -111,7 +111,7 @@ div {
       color: #6E7173;
       line-height: 2.7;
       margin-top: 0;
-      font-size: 16px;
+      font-size: 15px;
       border-bottom: 1px solid #ddd;
       display: block;
       font-weight: normal; }
@@ -119,7 +119,7 @@ div {
       color: #6E7173;
       line-height: 2.7;
       margin-top: 0;
-      font-size: 16px;
+      font-size: 15px;
       border-bottom: 0px solid #ddd;
       display: block;
       font-weight: normal; }
@@ -162,7 +162,7 @@ div {
 /* title for search result or tagged posts*/
 .label-title {
   margin-top: 1.1em;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: normal;
   color: #888; }
 
@@ -1413,7 +1413,7 @@ table {
   width: 100%;
   background: none;
   box-sizing: border-box;
-  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0 15px;
   color: #555;
   outline: none;
@@ -1435,7 +1435,7 @@ table {
   color: #999;
   text-shadow: 0 1px #fff; }
   .article-share-element:before, .article-share-twitter:before, .article-share-facebook:before, .article-share-weibo:before, .article-share-qrcode:before {
-    font-size: 20px;
+    font-size: 18px;
     font-family: "FontAwesome";
     width: 20px;
     height: 20px;
