@@ -27,7 +27,7 @@ body {
   font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 14px; }
+  font-size: 15px; }
 
 .body_container {
   padding: 0 60px;
@@ -91,7 +91,7 @@ div {
       padding: 3px 20px 3px;
       line-height: 30px;
       color: #444;
-      font-size: 14px;
+      font-size: 15px;
       border: 1px solid transparent; }
       #header #nav-menu a:hover {
         border-bottom-color: #444; }
@@ -222,7 +222,7 @@ div {
       color: #444; }
   .post .post-content {
     clear: left;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.77;
     color: #444;
     padding-top: 15px;
@@ -321,7 +321,7 @@ div {
   list-style: none;
   margin-top: 25px;
   padding: 25px 0 0;
-  font-size: 14px;
+  font-size: 15px;
   text-align: center; }
   .page-navigator .page-number {
     display: inline-block;
@@ -372,7 +372,7 @@ div {
 
 /* for archive page starts*/
 .post-archive {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 2;
   padding-bottom: .8em; }
   .post-archive h2 {
@@ -402,7 +402,7 @@ div {
       padding: 0 15px;
       line-height: 27px;
       height: 27px;
-      font-size: 13px; } }
+      font-size: 14px; } }
 
 /* small*/
 @media print, screen and (max-width: 35.5em) {
